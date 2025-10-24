@@ -1,0 +1,13 @@
+@echo off
+echo Starting Guerrilla Mail application...
+
+echo Starting Redis (if not running)...
+start "Redis" cmd /c "redis-server"
+
+echo Waiting for Redis to start...
+timeout /t 3 /nobreak > nul
+
+echo Starting the application...
+npm run dev
+
+pause
